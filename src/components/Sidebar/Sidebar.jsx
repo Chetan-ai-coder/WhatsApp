@@ -6,69 +6,45 @@ import Star from "../../assets/icons/Star.svg";
 import Meta from "../../assets/icons/metaai-color.svg";
 import Setting from "../../assets/icons/Setting.svg";
 
-export default function Sidebar() {
-    return (
-        <>
-            {/* Sidebar Start */}
-            <div className="w-17 h-full bg-[#f2f2f2] flex flex-col justify-between items-center py-5 px-2.5 border-solid border-r-1 border-[#d7d7d7] ">
+export default function Sidebar({ active, onChange }) {
 
-                <div className="w-full flex flex-col justify-start items-center gap-2">
+  const utilities = [
+    { id: "messages", icon: Message },
+    { id: "call", icon: Call },
+    { id: "status", icon: Status },
+  ];
 
-                    {/* Utilities Icon Section Start */}
-                    <div className="w-full flex flex-col justify-start items-center">
+  const operations = [
+    { id: "archived", icon: Archived },
+    { id: "starred", icon: Star },
+  ];
 
-                        <div className="w-12 h-12 flex justify-center items-center hover:bg-[#dadada] rounded-[5px] ">
-                            <img src={Message} alt="Message" className="w-6 h-6" />
-                        </div>
+  const utilityBase = "w-12 h-12 flex justify-center items-center rounded-[5px]";
 
-                        <div className="w-12 h-12 flex justify-center items-center hover:bg-[#dadada] rounded-[5px]">
-                            <img src={Call} alt="Call" className="w-6 h-6" />
-                        </div>
+  const renderIcon = (item) => (
+    <div
+      key={item.id}
+      onClick={() => onChange(item.id)}
+      className={`${utilityBase} hover:bg-[#dadada] ${
+        active === item.id ? "bg-[#dadada]" : ""
+      }`}
+    >
+      <img src={item.icon} className="w-6 h-6" />
+    </div>
+  );
 
-                        <div className="w-12 h-12 flex justify-center items-center hover:bg-[#dadada] rounded-[5px] ">
-                            <img src={Status} alt="Status" className="w-6 h-6" />
-                        </div>
+  return (
+    <div className="w-17 h-full bg-[#f2f2f2] flex flex-col justify-between items-center py-5 px-2.5 border-r border-[#d7d7d7]">
 
-                    </div>
+      <div className="flex flex-col gap-2 w-full items-center">
+        {utilities.map(renderIcon)}
+        <hr className="w-full border-[#d7d7d7]" />
+        {operations.map(renderIcon)}
+        <hr className="w-full border-[#d7d7d7]" />
+        {renderIcon({ id: "meta", icon: Meta })}
+      </div>
 
-                    {/* Utilities Icon Section End */}
-
-                    <hr className="w-full h-[1px] border-[#d7d7d7] " />
-
-                    {/* Operational Icons Section Start */}
-                    <div className="w-full flex flex-col justify-start items-center">
-
-                        <div className="w-12 h-12 flex justify-center items-center hover:bg-[#dadada] rounded-[5px] ">
-                            <img src={Archived} alt="Archives" className="w-6 h-6" />
-                        </div>
-
-                        <div className="w-12 h-12 flex justify-center items-center hover:bg-[#dadada] rounded-[5px] ">
-                            <img src={Star} alt="Star" className="w-6 h-6" />
-                        </div>
-                    </div>
-                    {/* Operational Icons Section End */}
-
-                    <hr className="w-full h-[1px] border-[#d7d7d7] " />
-
-                    {/* Meta AI Icon Section Start */}
-                    <div className="w-full flex flex-col justify-start items-center">
-                        <div className="w-12 h-12 flex justify-center items-center hover:bg-[#dadada] rounded-[5px] ">
-                            <img src={Meta} alt="Star" className="w-5 h-5" />
-                        </div>
-                    </div>
-                    {/* Meta AI Icon Section End */}
-                </div>
-
-                {/* Redirectional Icons Section Start */}
-                <div className="w-full flex flex-col justify-start items-center">
-                    <div className="w-12 h-12 flex justify-center items-center hover:bg-[#dadada] rounded-[5px] ">
-                        <img src={Setting} alt="Setting" className="w-6 h-6" />
-                    </div>
-                </div>
-                {/* Redirectional Icons Section End */}
-
-            </div>
-            {/* Sidebar End */}
-        </>
-    );
-};
+      {renderIcon({ id: "settings", icon: Setting })}
+    </div>
+  );
+}
