@@ -2,6 +2,7 @@ import Compose from "../../assets/icons/compose.svg";
 import Search from "../../assets/icons/search.svg";
 
 export default function ChatListHeader(head) {
+
     return (
         <>
             {/* Chat List Header */}
@@ -18,7 +19,7 @@ export default function ChatListHeader(head) {
                 {/* Search Bar */}
                 <div className="w-full flex justify-start items-center relative">
                     <img src={Search} alt="Search" className="w-[14px] h-[14px] absolute ml-2" />
-                    <input type="text" className="border-solid border-1 border-[#e6e6e6] w-full rounded-[5px] px-7 py-1 text-[14px]" placeholder="Search" />
+                    <input type="text" id="searchbar" className="border-solid border-1 border-[#e6e6e6] w-full rounded-[5px] px-7 py-1 text-[14px]" placeholder="Search" />
                 </div>
             </div>
         </>

@@ -34,7 +34,7 @@ export default function Sidebar({ active, onChange }) {
   );
 
   return (
-    <div className="w-17 h-full bg-[#f2f2f2] flex flex-col justify-between items-center py-5 px-2.5 border-r border-[#d7d7d7]">
+    <div className="w-17 h-full bg-[#f2f2f2] flex flex-col justify-between items-center py-5 px-2.5 border-r border-[#d7d7d7] overflow-hidden">
 
       <div className="flex flex-col gap-2 w-full items-center">
         {utilities.map(renderIcon)}

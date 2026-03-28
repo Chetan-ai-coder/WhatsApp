@@ -2,13 +2,14 @@ import { useState } from "react";
 import ChatCategories from "./ChatCategories";
 import ChatPreviewItem from "./ChatPreviewItem";
 
-export default function ChatBody({ chats }) {
+export default function ChatBody({ chats, onSelectChat, drafts }) {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filteredChats = chats.filter(chat => {
     if (activeFilter === "Unread") return chat.unreadCount > 0;
     if (activeFilter === "Favourites") return chat.isFavourite;
     if (activeFilter === "Groups") return chat.isGroup;
+    if (activeFilter === "All") return chat.isAll;
     return true;
   });
 
@@ -22,7 +23,12 @@ export default function ChatBody({ chats }) {
 
       <div className="w-full flex flex-col">
         {filteredChats.map(chat => (
-          <ChatPreviewItem key={chat.id} message={chat} />
+          <ChatPreviewItem 
+          key={chat.id} 
+          message={chat} 
+          draft= {drafts?.[chat.id]}
+          onClick={() => onSelectChat(chat)}
+          />
         ))}
       </div>
 

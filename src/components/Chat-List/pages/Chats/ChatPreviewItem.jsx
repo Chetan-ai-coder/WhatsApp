@@ -1,6 +1,8 @@
-export default function ChatPreviewItem({ message }) {
+export default function ChatPreviewItem({ message, onClick, draft }) {
   return (
-    <div className="w-full flex justify-between items-center hover:bg-[#f5f4f3] py-2.5 px-2.5 rounded-[7px] cursor-pointer">
+    <div
+      onClick={onClick}
+      className="w-full flex justify-between items-center hover:bg-[#f5f4f3] py-2.5 px-2.5 rounded-[7px] cursor-pointer">
 
       {/* Left */}
       <div className="flex items-center gap-2.5">
@@ -13,7 +15,11 @@ export default function ChatPreviewItem({ message }) {
         <div>
           <h1 className="text-[15px] font-semibold">{message.name}</h1>
           <p className="text-[12px] text-[#5f6161] truncate max-w-[180px]">
-            {message.lastMessage}
+            {draft ? (
+              <span className="text-red-500">Draft: {draft}</span>
+            ) : (
+              message.lastMessage
+            )}
           </p>
         </div>
       </div>

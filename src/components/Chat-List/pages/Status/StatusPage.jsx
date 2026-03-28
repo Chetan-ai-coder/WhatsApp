@@ -1,5 +1,9 @@
+import StatusList from "./StatusList";
 export default function Status() {
-    return(
-        <h1>Status Screen</h1>
+    return (
+        <>
+            <StatusList />
+            
+        </>
     );
 };
