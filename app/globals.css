@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", monospace;
+  
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-primary: #25D366;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f2f2f2;
+  --color-secondary-foreground: #5f6161;
+  --color-muted: #dadada;
+  --color-muted-foreground: #64625e;
+  --color-accent: #d4fdcd;
+  --color-accent-foreground: #185636;
+  --color-border: #e6e6e6;
+  
+  --radius: 0.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Making Scrollbar Nice */
+textarea::-webkit-scrollbar {
+  width: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+/* Custom spacing for chat sidebar */
+.w-17 {
+  width: 4.25rem;
+}
+
+.h-17 {
+  height: 4.25rem;
+}
+
+.w-85 {
+  width: 21.25rem;
+}
+
+.h-50 {
+  height: 12.5rem;
+}
