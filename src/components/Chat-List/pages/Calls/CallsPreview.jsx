@@ -1,8 +1,5 @@
 import Elon from "../../../../assets/images/Elon.png";
-import Incoming from "../../../../assets/icons/Incoming.svg";
-import VoiceCallHover from "../../../../assets/icons/Incoming Hover.svg";
-import VideoCallHover from "../../../../assets/icons/VideoCall.svg";
-import InfoHover from "../../../../assets/icons/Info.svg";
+import { Phone, Video, Info, ArrowDownLeft } from 'lucide-react';
 
 export default function CallsPreview() {
     return (
@@ -18,8 +15,8 @@ export default function CallsPreview() {
 
                     <div>
                         <h1 className="text-[15px] font-semibold">Elon</h1>
-                        <div className=" flex justify-start items-center gap-[2px]">
-                            <img src={Incoming} alt="Incoming" className="inline w-3 h-3 mr-1" />
+                        <div className="flex justify-start items-center gap-1">
+                            <ArrowDownLeft size={14} className="text-green-500" />
                             <p className="text-[14px] text-[#5f6161] max-w-[180px]">Incoming</p>
                         </div>
                     </div>
@@ -33,16 +30,16 @@ export default function CallsPreview() {
                 {/* Hover Icons */}
                 <div className="hidden group-hover:flex gap-2">
 
-                    <div className="px-2 py-1 hover:bg-white border border-transparent hover:border-black/10 rounded-[5px] hover:shadow-md">
-                        <img src={VoiceCallHover} alt="Voice Call" className="w-5 h-5" />
+                    <div className="px-2 py-1 hover:bg-white border border-transparent hover:border-black/10 rounded-[5px] hover:shadow-md cursor-pointer">
+                        <Phone size={18} className="text-green-500" />
                     </div>
 
-                    <div className="px-2 py-1 hover:bg-white border border-transparent hover:border-black/10 rounded-[5px] hover:shadow-md">
-                  <img src={VideoCallHover} alt="Video Call" className="w-5 h-5" />
+                    <div className="px-2 py-1 hover:bg-white border border-transparent hover:border-black/10 rounded-[5px] hover:shadow-md cursor-pointer">
+                        <Video size={18} className="text-green-500" />
                     </div>
 
-                    <div className="px-2 py-1 hover:bg-white border border-transparent hover:border-black/10 rounded-[5px] hover:shadow-md">
-                        <img src={InfoHover} alt="Call Info" className="w-5 h-5" />
+                    <div className="px-2 py-1 hover:bg-white border border-transparent hover:border-black/10 rounded-[5px] hover:shadow-md cursor-pointer">
+                        <Info size={18} className="text-gray-700" />
                     </div>
                 </div>
             </div>

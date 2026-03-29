@@ -1,8 +1,5 @@
 import { useRef, useEffect } from "react";
-import Plus from "../../assets/icons/icoplus.svg";
-import Mic from "../../assets/icons/icomic.svg";
-import Emoji from "../../assets/icons/icoemoji.svg";
-import CTA from "../../assets/icons/Cta icon.svg";
+import { Plus, Mic, Smile, Send } from 'lucide-react';
 
 
 export default function MessageInput({ addMessage, drafts, setDrafts }) {
@@ -66,8 +63,8 @@ export default function MessageInput({ addMessage, drafts, setDrafts }) {
             <div className="w-full bg-[#f5f1ec] px-3 py-2 flex items-end gap-2">
 
                 {/* Add File Button */}
-                <div className="flex justify-center items-center hover:bg-[#dcdcdc] w-9 h-9 rounded-[999px]">
-                    <img src={Plus} alt="Add File" />
+                <div className="flex justify-center items-center hover:bg-[#dcdcdc] w-9 h-9 rounded-[999px] cursor-pointer">
+                    <Plus size={20} className="text-gray-700" />
                 </div>
 
                 {/* Message Input Area */}
@@ -80,17 +77,18 @@ export default function MessageInput({ addMessage, drafts, setDrafts }) {
                         onKeyDown={handleKeyDown}
                         rows={1}
                     />
-                    <img src={Emoji} alt="" className="absolute right-2 bottom-2" />
+                    <Smile size={20} className="absolute right-2 bottom-2 text-gray-700 cursor-pointer" />
                 </div>
 
                 {/* Action Button Mic & Send */}
                 <div
                     onClick={handleSend}
-                    className="flex justify-center items-center hover:bg-[#dcdcdc] w-9 h-9 rounded-[999px]">
-                    <img
-                        src={message.trim() === "" ? Mic : CTA}
-                        alt="Action Icon"
-                    />
+                    className="flex justify-center items-center hover:bg-[#dcdcdc] w-9 h-9 rounded-[999px] cursor-pointer">
+                    {message.trim() === "" ? (
+                        <Mic size={20} className="text-gray-700" />
+                    ) : (
+                        <Send size={20} className="text-green-500" />
+                    )}
                 </div>
 
             </div>

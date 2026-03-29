@@ -1,4 +1,4 @@
-import Plus from "../../../../assets/icons/Plus.svg";
+import { Plus } from 'lucide-react';
 export default function CallsFav() {
     return (
         <div className="w-full flex flex-col my-5">
@@ -7,8 +7,8 @@ export default function CallsFav() {
 
                 {/* Left */}
                 <div className="flex items-center gap-2.5">
-                    <div className="w-12 h-12 bg-[#000000]/4  rounded-full flex justify-center items-center" >
-                        <img src={Plus} alt="" className="w-6 h-6" />
+                    <div className="w-12 h-12 bg-[#000000]/4 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#000000]/10">
+                        <Plus size={24} className="text-green-500" />
                     </div>
 
                     <div>

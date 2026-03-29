@@ -1,7 +1,5 @@
 import { useEffect, useRef } from "react";
-import Sending from "../../assets/icons/MesSending.svg";
-import Sent from "../../assets/icons/MesSended.svg";
-import Seen from "../../assets/icons/MesRead.svg";
+import { Clock, CheckCircle, CheckCircle2 } from 'lucide-react';
 import Wallpaper from "../../assets/images/FriendsWallpaper.jpg";
 
 export default function ChatArea({ messages }) {
@@ -36,17 +34,9 @@ export default function ChatArea({ messages }) {
 
                         {msg.time}
 
-                        <img
-                            src={
-                                msg.status === "sending"
-                                    ? Sending
-                                    : msg.status === "sent"
-                                        ? Sent
-                                        : Seen
-                            }
-                            alt="status"
-                            className="w-4 h-4"
-                        />
+                        {msg.status === "sending" && <Clock size={14} className="text-gray-400" />}
+                        {msg.status === "sent" && <CheckCircle size={14} className="text-gray-500" />}
+                        {msg.status === "read" && <CheckCircle2 size={14} className="text-blue-500" />}
 
                     </span>
 

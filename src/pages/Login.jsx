@@ -1,13 +1,6 @@
-import Whatsapp from "../assets/icons/Whatsapp Logo Full.svg";
-import Window from "../assets/icons/Whatsapp Window.svg";
 import QR from "../assets/images/Qr Code.png";
 import WhatsappLogo from "../assets/images/logos_whatsapp.png";
-import { ChevronRight } from 'lucide-react';
-import { ArrowUpRight } from 'lucide-react';
-import { LockKeyhole } from 'lucide-react';
-import { Download } from 'lucide-react';
-import { EllipsisVertical } from 'lucide-react';
-import { Cog } from 'lucide-react';
+import { ChevronRight, ArrowUpRight, LockKeyhole, Download, EllipsisVertical, Cog, MessageCircle, Monitor } from 'lucide-react';
 
 export default function Login() {
     return (
@@ -18,8 +11,8 @@ export default function Login() {
 
             {/* Header Start */}
             <header className="w-full px-10 py-2">
-                <div className="logo flex items-center  gap-1.5 text-[22px] font-bold text-[#25D366]">
-                    <img src={Whatsapp} alt="logo" className="w-8 h-8" />
+                <div className="logo flex items-center gap-1.5 text-[22px] font-bold text-[#25D366]">
+                    <MessageCircle size={32} className="text-[#25D366]" />
                     WhatsApp
                 </div>
             </header>
@@ -35,7 +28,7 @@ export default function Login() {
                 <div className="w-4xl bg-[#FFFFFF] border-solid border-1 border-[black] rounded-[20px] px-10 py-6 flex justify-between items-center">
 
                     <div className="">
-                        <img src={Window} alt="Whatsapp Window Logo" className="w-17 h-17" />
+                        <Monitor size={68} className="text-[#25D366]" />
                     </div>
 
                     <div className="flex flex-col justify-center items-start text-start  w-[65%]">

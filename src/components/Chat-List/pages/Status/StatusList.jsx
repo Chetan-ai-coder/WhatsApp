@@ -1,6 +1,5 @@
 "use client"
-import Camera from "../../../../assets/icons/Camera.svg";
-import Pencil from "../../../../assets/icons/Pencil.svg";
+import { Camera, PenTool } from 'lucide-react';
 import StatusCard from "./StatusCard";
 import { statusData } from "../../../../data/statusData";
 import Elon from "../../../../assets/images/Elon.png";
@@ -19,25 +18,14 @@ export default function StatusList() {
                 <div className="my-5 px-3 flex justify-between items-center">
                     <h1 className="text-[15px] font-semibold">Status</h1>
 
-                    <div className="flex justif-center items-center gap-5">
+                    <div className="flex justify-center items-center gap-5">
 
-                        <div className="flex justify-center items-center p-1">
-                            <img src={Camera}
-                                width={25}
-                                height={25}
-                                alt="Camera"
-                                className="w-5 h-auto"
-                            />
+                        <div className="flex justify-center items-center p-1 hover:bg-gray-100 rounded-full cursor-pointer">
+                            <Camera size={20} className="text-gray-700" />
                         </div>
 
-                        <div className="flex justify-center items-center p-1">
-                            <img src={Pencil}
-                                width={25}
-                                height={25}
-                                alt="Camera"
-                                className="w-5 h-auto"
-                            />
-
+                        <div className="flex justify-center items-center p-1 hover:bg-gray-100 rounded-full cursor-pointer">
+                            <PenTool size={20} className="text-gray-700" />
                         </div>
                     </div>
                 </div>
