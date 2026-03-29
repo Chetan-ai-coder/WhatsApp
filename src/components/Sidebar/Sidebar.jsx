@@ -1,37 +1,35 @@
-import Message from "../../assets/icons/Message.svg";
-import Call from "../../assets/icons/Call.svg";
-import Status from "../../assets/icons/Status.svg";
-import Archived from "../../assets/icons/Archived.svg";
-import Star from "../../assets/icons/Star.svg";
-import Meta from "../../assets/icons/metaai-color.svg";
-import Setting from "../../assets/icons/Setting.svg";
+import { MessageCircle, Phone, AlertCircle, Archive, Star, Settings, Zap } from 'lucide-react'
 
 export default function Sidebar({ active, onChange }) {
 
   const utilities = [
-    { id: "messages", icon: Message },
-    { id: "call", icon: Call },
-    { id: "status", icon: Status },
+    { id: "messages", icon: MessageCircle, label: "Messages" },
+    { id: "call", icon: Phone, label: "Calls" },
+    { id: "status", icon: AlertCircle, label: "Status" },
   ];
 
   const operations = [
-    { id: "archived", icon: Archived },
-    { id: "starred", icon: Star },
+    { id: "archived", icon: Archive, label: "Archived" },
+    { id: "starred", icon: Star, label: "Starred" },
   ];
 
   const utilityBase = "w-12 h-12 flex justify-center items-center rounded-[5px]";
 
-  const renderIcon = (item) => (
-    <div
-      key={item.id}
-      onClick={() => onChange(item.id)}
-      className={`${utilityBase} hover:bg-[#dadada] ${
-        active === item.id ? "bg-[#dadada]" : ""
-      }`}
-    >
-      <img src={item.icon} className="w-6 h-6" />
-    </div>
-  );
+  const renderIcon = (item) => {
+    const IconComponent = item.icon;
+    return (
+      <div
+        key={item.id}
+        onClick={() => onChange(item.id)}
+        className={`${utilityBase} hover:bg-[#dadada] cursor-pointer transition-colors ${
+          active === item.id ? "bg-[#dadada]" : ""
+        }`}
+        title={item.label}
+      >
+        <IconComponent size={24} className="text-gray-700" />
+      </div>
+    );
+  };
 
   return (
     <div className="w-17 h-full bg-[#f2f2f2] flex flex-col justify-between items-center py-5 px-2.5 border-r border-[#d7d7d7] overflow-hidden">
@@ -41,10 +39,10 @@ export default function Sidebar({ active, onChange }) {
         <hr className="w-full border-[#d7d7d7]" />
         {operations.map(renderIcon)}
         <hr className="w-full border-[#d7d7d7]" />
-        {renderIcon({ id: "meta", icon: Meta })}
+        {renderIcon({ id: "meta", icon: Zap, label: "Meta AI" })}
       </div>
 
-      {renderIcon({ id: "settings", icon: Setting })}
+      {renderIcon({ id: "settings", icon: Settings, label: "Settings" })}
     </div>
   );
 }

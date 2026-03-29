@@ -1,6 +1,4 @@
-import Call from "../../assets/icons/Call.svg";
-import Search from "../../assets/icons/search.svg";
-import VideoCall from "../../assets/icons/VidCall.svg";
+import { Phone, Video, Search } from 'lucide-react'
 
 export default function ChatHeader({ chat }) {
 
@@ -25,9 +23,9 @@ export default function ChatHeader({ chat }) {
 
       {/* Contact Details */}
       <div className="flex justify-center items-center gap-2">
-        <div className="w-10 h-9 hover:bg-[#f6f5f4] flex justify-center items-center rounded-[6px]"><img src={VideoCall} alt="Video Call" className="w-6 h-6" /></div>
-        <div className="w-9 h-9 hover:bg-[#f6f5f5] flex justify-center items-center rounded-[6px]">   <img src={Call} alt="Voice Call" className="w-6 h-6" /></div>
-        <div className="w-9 h-9 hover:bg-[#f6f5f5] flex justify-center items-center rounded-[6px]"> <img src={Search} alt="Search" className="w-5 h-5" /></div>
+        <div className="w-10 h-9 hover:bg-[#f6f5f4] flex justify-center items-center rounded-[6px]"><Video size={20} className="text-gray-700" /></div>
+        <div className="w-9 h-9 hover:bg-[#f6f5f5] flex justify-center items-center rounded-[6px]"><Phone size={20} className="text-gray-700" /></div>
+        <div className="w-9 h-9 hover:bg-[#f6f5f5] flex justify-center items-center rounded-[6px]"><Search size={20} className="text-gray-700" /></div>
       </div>
 
     </div>
