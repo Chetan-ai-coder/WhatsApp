@@ -70,20 +70,27 @@ export default function MessageInput({
   }
 
   return (
-    <div className="w-full bg-[#f5f1ec] px-3 py-2 flex items-end gap-2">
+    <div className="w-full bg-[#f5f1ec] px-2 md:px-3 py-2 flex items-end gap-1 md:gap-2 flex-shrink-0">
       {/* Add File Button */}
-      <div className="flex justify-center items-center hover:bg-[#dcdcdc] w-9 h-9 rounded-full cursor-pointer">
-        <Image src="/icons/icoplus.svg" alt="Add File" width={24} height={24} />
+      <div className="flex justify-center items-center hover:bg-[#dcdcdc] w-8 h-8 md:w-9 md:h-9 rounded-full cursor-pointer transition-colors flex-shrink-0">
+        <Image 
+          src="/icons/icoplus.svg" 
+          alt="Add File" 
+          width={24} 
+          height={24}
+          className="w-5 h-5 md:w-6 md:h-6"
+        />
       </div>
 
       {/* Message Input Area */}
       <div className="flex justify-center items-center flex-1 relative w-full">
         <textarea
           ref={textareaRef}
-          className="border border-[#cccccc] rounded-2xl pl-3 pr-8 py-2 focus:outline-none w-full resize-none overflow-y-hidden max-h-[120px] min-h-[36px]"
+          className="border border-[#cccccc] rounded-2xl pl-3 pr-8 py-2 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-opacity-50 w-full resize-none overflow-y-hidden max-h-[120px] min-h-[36px] text-sm md:text-base"
           value={message}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
+          placeholder="Message"
           rows={1}
         />
         <Image
@@ -91,20 +98,21 @@ export default function MessageInput({
           alt="Emoji"
           width={24}
           height={24}
-          className="absolute right-2 bottom-2 cursor-pointer"
+          className="absolute right-2 bottom-2 cursor-pointer w-5 h-5 md:w-6 md:h-6 hover:opacity-70 transition-opacity"
         />
       </div>
 
       {/* Action Button Mic & Send */}
       <div
         onClick={handleSend}
-        className="flex justify-center items-center hover:bg-[#dcdcdc] w-9 h-9 rounded-full cursor-pointer"
+        className="flex justify-center items-center hover:bg-[#dcdcdc] w-8 h-8 md:w-9 md:h-9 rounded-full cursor-pointer transition-colors flex-shrink-0"
       >
         <Image
           src={message.trim() === "" ? "/icons/icomic.svg" : "/icons/cta-icon.svg"}
           alt="Action Icon"
           width={24}
           height={24}
+          className="w-5 h-5 md:w-6 md:h-6"
         />
       </div>
     </div>

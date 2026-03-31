@@ -21,14 +21,22 @@
 
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: var(--color-background);
   color: var(--color-foreground);
+  line-height: 1.5;
 }
 
+/* ==================== SCROLLBAR STYLING ==================== */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -38,9 +46,13 @@ body {
   scrollbar-width: none;
 }
 
-/* Making Scrollbar Nice */
+/* Scrollbar for textarea */
 textarea::-webkit-scrollbar {
   width: 4px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 textarea::-webkit-scrollbar-thumb {
@@ -48,7 +60,31 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
-/* Custom spacing for chat sidebar */
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Generic scrollbar styling */
+div::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+div::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+div::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+div::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* ==================== CUSTOM DIMENSIONS ==================== */
+/* Desktop/Tablet dimensions */
 .w-17 {
   width: 4.25rem;
 }
@@ -63,4 +99,167 @@ textarea::-webkit-scrollbar-thumb {
 
 .h-50 {
   height: 12.5rem;
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+
+/* LARGE SCREENS (1920px and up) - UltraWide */
+@media (min-width: 1920px) {
+  /* Increase font sizes slightly for UltraWide displays */
+  body {
+    font-size: 16px;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+  
+  /* Scale up spacing */
+  .w-85 {
+    width: 23.75rem;
+  }
+  
+  .w-17 {
+    width: 4.75rem;
+  }
+  
+  .h-17 {
+    height: 4.75rem;
+  }
+}
+
+/* DESKTOP RANGE (1200px - 1919px) - Standard Desktop/Large Tablet */
+@media (min-width: 1200px) and (max-width: 1919px) {
+  /* Optimal for reading and interaction */
+  body {
+    font-size: 15px;
+  }
+  
+  /* Maintain good proportions */
+  .w-85 {
+    width: 20.5rem;
+  }
+}
+
+/* TABLET LANDSCAPE (1024px - 1199px) - iPad Landscape, Large Tablets */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  /* Adjust spacing for tablet landscape */
+  .w-85 {
+    width: 19rem;
+  }
+  
+  .w-17 {
+    width: 4rem;
+  }
+  
+  .h-17 {
+    height: 4rem;
+  }
+  
+  /* Adjust font sizes for comfortable reading */
+  body {
+    font-size: 14px;
+  }
+}
+
+/* TABLET PORTRAIT (768px - 1023px) - iPad Portrait, Small Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Stack layout for better tablet use */
+  .w-85 {
+    width: 18rem;
+  }
+  
+  .w-17 {
+    width: 3.75rem;
+  }
+  
+  .h-17 {
+    height: 3.75rem;
+  }
+  
+  /* Slightly reduced font for tablet */
+  body {
+    font-size: 13px;
+  }
+  
+  /* Improve touch targets */
+  button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* MOBILE (under 768px) - Will be blocked by MobileBlocker */
+@media (max-width: 767px) {
+  /* These styles are fallback only, as mobile access is blocked */
+  body {
+    font-size: 12px;
+  }
+}
+
+/* ==================== INTERACTION ENHANCEMENTS ==================== */
+
+/* Smooth transitions for interactions */
+button, a, [role="button"], input, textarea {
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+/* Better hover states */
+@media (hover: hover) {
+  button:hover, [role="button"]:hover {
+    cursor: pointer;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Touch-friendly on tablets */
+@media (hover: none) {
+  button, [role="button"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* ==================== FOCUS STATES FOR ACCESSIBILITY ==================== */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ==================== CROSS-BROWSER COMPATIBILITY ==================== */
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+/* Ensure proper text rendering */
+input, textarea, select, button {
+  font-family: inherit;
+}
+
+/* Prevent text selection on UI elements */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+  body {
+    background: white;
+  }
+  
+  @page {
+    margin: 0;
+  }
 }

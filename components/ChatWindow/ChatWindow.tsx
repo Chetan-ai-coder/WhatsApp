@@ -17,8 +17,10 @@ export default function ChatWindow({ chat }: ChatWindowProps) {
   // On Default Chat Window
   if (!chat) {
     return (
-      <div className="h-full flex-1 flex items-center justify-center bg-[#f5f1ec]">
-        <p className="text-[#5f6161]">Select a chat</p>
+      <div className="h-full w-full flex items-center justify-center bg-[#f5f1ec] p-4">
+        <div className="text-center">
+          <p className="text-[#5f6161] text-base md:text-lg">Select a chat to start messaging</p>
+        </div>
       </div>
     );
   }
@@ -55,7 +57,7 @@ export default function ChatWindow({ chat }: ChatWindowProps) {
   const messages = messagesByChat[chat.id] || [];
 
   return (
-    <div className="h-full flex-1 flex flex-col">
+    <div className="h-full w-full flex flex-col overflow-hidden">
       <ChatHeader chat={chat} />
 
       <ChatArea chat={chat} messages={messages} />

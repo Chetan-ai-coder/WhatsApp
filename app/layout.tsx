@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import MobileBlocker from "@/components/MobileBlocker";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
   themeColor: "#25D366",
   userScalable: true,
 };
@@ -44,7 +46,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <MobileBlocker />
+        {children}
+      </body>
     </html>
   );
 }
